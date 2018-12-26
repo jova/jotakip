@@ -55,7 +55,7 @@
     <Compile Include="Abstract\IPersonalService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\IReportService.cs" />
-    <Compile Include="Abstract\ISalesmanService.cs" />
+    <Compile Include="Abstract\IUserService.cs" />
     <Compile Include="Abstract\IWarehouseService.cs" />
     <Compile Include="Concrete\DepartmentManager.cs" />
     <Compile Include="Concrete\LoginManager.cs" />

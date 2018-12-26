@@ -51,7 +51,6 @@
     <Compile Include="Concrete\Department.cs" />
     <Compile Include="Concrete\Personal.cs" />
     <Compile Include="Concrete\Product.cs" />
-    <Compile Include="Concrete\Salesman.cs" />
     <Compile Include="Concrete\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

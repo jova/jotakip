@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    interface IUserService
+    public interface IUserService
     {
         void Add(User salesman);
         void Update(User salesman);

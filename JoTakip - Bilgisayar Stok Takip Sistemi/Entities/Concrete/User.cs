@@ -9,10 +9,8 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class User : IEntity
+    public class User : Personal, IEntity
     {
-        [Key]
-        public int Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public UserType UserType { get; set; }
