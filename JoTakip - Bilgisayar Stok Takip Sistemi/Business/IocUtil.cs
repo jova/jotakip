@@ -33,7 +33,7 @@ namespace Business
                 Component.For<IProductService>().ImplementedBy<ProductManager>(),
                 Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
                 Component.For<IWarehouseService>().ImplementedBy<WarehouseManager>()
-                //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
+                Component.For<ILoginService>().ImplementedBy<LoginManager>()
                 //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
                 //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
                 //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>()
