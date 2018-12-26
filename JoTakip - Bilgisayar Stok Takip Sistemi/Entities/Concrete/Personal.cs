@@ -1,4 +1,5 @@
-﻿using Core.Entities;
+﻿using Core;
+using Core.Entities;
 using System.ComponentModel.DataAnnotations;
 
 namespace Entities.Concrete
@@ -11,5 +12,6 @@ namespace Entities.Concrete
         public string LastName { get; set; }
         public bool StillEmployed { get; set; }
         public int DepartmentId { get; set; }
+        public Gender Gender { get; set; }
     }
 }
