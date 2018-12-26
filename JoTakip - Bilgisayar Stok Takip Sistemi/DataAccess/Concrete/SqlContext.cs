@@ -15,9 +15,6 @@ namespace DataAccess.Concrete
         public DbSet<Department> Departments { get; set; }
         public DbSet<Personal> Personals { get; set; }
         public DbSet<Product> Products { get; set; }
-        public DbSet<Salesman> Salesmen { get; set; }
         public DbSet<User> Users { get; set; }
-
-
     }
 }
