@@ -9,6 +9,7 @@ namespace Core
     public enum UserType
     {
         Admin,
-        Salesman
+        BuyerManager,
+        DepartmentManager
     }
 }
