@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for DemirbasAtamalariPage.xaml
+    /// Interaction logic for RaporlarPage.xaml
     /// </summary>
-    public partial class DemirbasAtamalariPage : BasePage<BaseViewModel>
+    public partial class RaporlarPage : BasePage<BaseViewModel>
     {
-        public DemirbasAtamalariPage()
+        public RaporlarPage()
         {
             InitializeComponent();
         }
@@ -28,14 +28,14 @@ namespace UI
         private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 152, 136));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
             b.Background = brush;
         }
 
         private void Border_MouseLeave(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(110, 110, 110));
             b.Background = brush;
         }
 
@@ -44,11 +44,11 @@ namespace UI
             Border b = sender as Border;
             switch (b.Name)
             {
-                case "OdayaEklemeBorder":
+                case "YoneticiAtaBorder":
                     await this.AnimateOut();
                     this.NavigationService.Navigate(new OdayaEklemePage());
                     return;
-                case "OdadanCikarmaBorder":
+                case "DepartmanlarBorder":
                     await this.AnimateOut();
                     this.NavigationService.Navigate(new OdadanCikarmaPage());
                     return;

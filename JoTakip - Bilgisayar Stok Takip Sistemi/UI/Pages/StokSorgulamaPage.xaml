@@ -9,8 +9,7 @@
       Title="StokSorgulamaPage">
 
     <Border>
-        <Border 
-                CornerRadius="10"
+        <Border CornerRadius="10"
                 Margin="15 15 15 15"
                 Width="750"
                 Height="500">

@@ -62,7 +62,7 @@ namespace UI
                     return;
                 case "GeriBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new DemirbasAtamalariPage());
+                    this.NavigationService.Navigate(new DepartmanIslemleriPage());
                     return;
                 default:
                     break;

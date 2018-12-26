@@ -28,6 +28,11 @@ namespace Business.Concrete
             userDal.Delete(user);
         }
 
+        public User Get()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<User> GetList()
         {
             return userDal.GetList();

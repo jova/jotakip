@@ -21,7 +21,7 @@
                 </Grid.RowDefinitions>
 
                 <StackPanel Margin="40 5 5 5" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
-                    <Border Margin="5 5 5 5" Background="#999999" Height="100" Width="300" CornerRadius="10">
+                    <Border Margin="5 5 5 5" Background="#6E6E6E" Height="100" Width="300" CornerRadius="10">
 
                         <StackPanel>
                             <Grid Margin="10" VerticalAlignment="Center" Width="300" HorizontalAlignment="Center">
@@ -30,21 +30,32 @@
                                     <ColumnDefinition Width="2*"/>
                                 </Grid.ColumnDefinitions>
 
-                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
-                                    <Image Height="80" Width="80" Stretch="Uniform" Source="/Demirbas Takip Sistemi;component/Images/Logo/user.png"/>
-                                </StackPanel>
+                                <Image x:Name="ImgMaleUser"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Height="80" 
+                                       Width="80" 
+                                       Stretch="Uniform" 
+                                       RenderOptions.BitmapScalingMode="HighQuality" 
+                                       Source="/Images/Logo/boy.png"/>
+
+                                <Image x:Name="ImgFemaleUser"
+                                       VerticalAlignment="Center"
+                                       HorizontalAlignment="Center"
+                                       Height="80" 
+                                       Width="80" 
+                                       Stretch="Uniform" 
+                                       RenderOptions.BitmapScalingMode="HighQuality" 
+                                       Source="/Images/Logo/girl.png"/>
+
 
                                 <StackPanel Grid.Column="1">
                                     <TextBlock x:Name="NameText" Text="Personel: " Margin="5 15 5 0" Foreground="#e5e5e5"/>
                                     <TextBlock x:Name="YetkiText" Text="Yetki: " Margin="5 5 5 0" Foreground="#e5e5e5"/>
-                                    <Button Content="Çıkış" Click="Button_ClickAsync" Margin="5 5 5 5"/>
+                                    <Button Content="Çıkış" Width="180" HorizontalAlignment="Left" Click="Button_ClickAsync" Margin="5 5 5 5"/>
                                 </StackPanel>
 
-
                             </Grid>
-                            <StackPanel>
-                            </StackPanel>
-
 
                         </StackPanel>
 
@@ -54,38 +65,54 @@
 
                 <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
 
-                    <Border x:Name="StokIslemleriBorder" Margin="5 5 5 5" Background="#999999" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="StokIslemleriBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/stock.png"/>
-                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Stok İşlemleri" VerticalContentAlignment="Center"/>
+                            <Image Stretch="Fill" 
+                                   Height="64" 
+                                   Width="64" 
+                                   Source="/Images/Logo/stock.png"/>
+                            <Label Margin="0 2 0 0" Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Stok İşlemleri" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="OdaIslemleriBorder" Margin="5 5 5 5" Background="#999999" Width="120" Height="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="PersonelIslemleriBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="120" Height="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/key.png"/>
-                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Oda İşlemleri" VerticalContentAlignment="Center"/>
+                            <Image Stretch="Fill" 
+                                   Height="64" 
+                                   Width="64" 
+                                   RenderOptions.BitmapScalingMode="HighQuality" 
+                                   Source="/Images/Logo/team.png"/>
+                            <Label Margin="0 2 0 0" Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Personel İşlemleri" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border  x:Name="DemirbasAtamalariBorder" Margin="5 5 5 5" Background="#999999" Width="120" Height="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border  x:Name="DepartmanIslemleriBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="120" Height="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/stocktoroom.png"/>
-                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Demirbaş Atamaları" VerticalContentAlignment="Center"/>
+                            <Image Stretch="Fill" 
+                                   Height="64"
+                                   Width="64"
+                                   Source="/Images/Logo/department.png"/>
+                            <Label Margin="0 2 0 0" Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Departman İşlemleri" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="SorgulamalarBorder" Margin="5 5 5 5" Background="#999999" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="SorgulamalarBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Source="/Demirbas Takip Sistemi;component/Images/Logo/query.png" Stretch="None" />
-                            <Label HorizontalAlignment="Center" Foreground="#e5e5e5" Content="Sorgulamalar" VerticalContentAlignment="Center"/>
+                            <Image Height="64"
+                                   Width="64"
+                                   Source="/Images/Logo/query.png" 
+                                   Stretch="Fill" />
+                            <Label Margin="0 2 0 0" HorizontalAlignment="Center" Foreground="#e5e5e5" Content="Sorgulamalar" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="RaporlarBorder" Margin="5 5 5 5" Background="#999999" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="RaporlarBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/newspaper.png"/>
-                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Raporlar" VerticalContentAlignment="Center"/>
+                            <Image Height="64"
+                                   Width="64"
+                                   Stretch="Fill" 
+                                   Source="/Images/Logo/report.png"/>
+                            <Label Margin="0 2 0 0" Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Raporlar" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 

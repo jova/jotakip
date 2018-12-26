@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for SorgulamalarPage.xaml
+    /// Interaction logic for DemirbasAtamalariPage.xaml
     /// </summary>
-    public partial class SorgulamalarPage : BasePage<BaseViewModel>
+    public partial class DepartmanIslemleriPage : BasePage<BaseViewModel>
     {
-        public SorgulamalarPage()
+        public DepartmanIslemleriPage()
         {
             InitializeComponent();
         }
@@ -42,16 +42,18 @@ namespace UI
         private async void Border_MouseDownAsync(object sender, MouseButtonEventArgs e)
         {
             Border b = sender as Border;
-            await this.AnimateOut();
             switch (b.Name)
             {
-                case "PersonelSorgulamaBorder":
-                    this.NavigationService.Navigate(new PersonelSorgulamaPage());
+                case "YoneticiAtaBorder":
+                    await this.AnimateOut();
+                    this.NavigationService.Navigate(new OdayaEklemePage());
                     return;
-                case "StokSorgulamaBorder":
-                    this.NavigationService.Navigate(new StokSorgulamaPage());
+                case "DepartmanlarBorder":
+                    await this.AnimateOut();
+                    this.NavigationService.Navigate(new OdadanCikarmaPage());
                     return;
                 case "GeriBorder":
+                    await this.AnimateOut();
                     this.NavigationService.Navigate(new MainMenuPage());
                     return;
                 default:
