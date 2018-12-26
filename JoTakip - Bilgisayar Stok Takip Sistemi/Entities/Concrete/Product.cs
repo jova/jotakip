@@ -12,5 +12,6 @@ namespace Entities.Concrete
         public int AssignedById { get; set; }
         public DateTime Date { get; set; }
         public DateTime AssignedByDate { get; set; }
+        public int Count { get; set; }
     }
 }

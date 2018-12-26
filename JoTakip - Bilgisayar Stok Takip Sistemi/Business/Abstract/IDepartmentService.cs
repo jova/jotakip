@@ -10,6 +10,6 @@ namespace Business.Abstract
     public interface IDepartmentService
     {
         List<Department> GetList();
-        Department Get();
+        Department Get(int departmentNo);
     }
 }

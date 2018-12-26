@@ -9,9 +9,9 @@ namespace Business.Abstract
 {
     public interface IUserService
     {
-        void Add(User salesman);
-        void Update(User salesman);
-        void Delete(User salesman);
+        void Add(User user);
+        void Update(User user);
+        void Delete(User user);
         User Get();
         List<User> GetList();
     }
