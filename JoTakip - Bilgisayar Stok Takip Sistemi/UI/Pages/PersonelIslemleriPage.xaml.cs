@@ -16,27 +16,26 @@ using System.Windows.Shapes;
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for OdaIslemleriPage.xaml
+    /// Interaction logic for PersonelIslemleriPage.xaml
     /// </summary>
-    public partial class OdaIslemleriPage : BasePage<BaseViewModel>
+    public partial class PersonelIslemleriPage : BasePage<BaseViewModel>
     {
-        public OdaIslemleriPage()
+        public PersonelIslemleriPage()
         {
-            this.WindowTitle = "asdasda";
             InitializeComponent();
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 152, 136));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
             b.Background = brush;
         }
 
         private void Border_MouseLeave(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(110, 110, 110));
             b.Background = brush;
         }
 

@@ -1,12 +1,12 @@
-﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.SorgulamalarPage"
+﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.DepartmanIslemleriPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UI"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="900"
-      Title="SorgulamalarPage">
+      d:DesignHeight="900" d:DesignWidth="900"
+      Title="Departman İşlemleri">
 
     <Border>
         <Border CornerRadius="10"
@@ -21,32 +21,32 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
 
-                    <Border x:Name="PersonelSorgulamaBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="140" Height="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="YoneticiAtaBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="140" Height="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Height="64"
-                                   Width="64"
+                            <Image Width="64"
+                                   Height="64"
                                    RenderOptions.BitmapScalingMode="HighQuality"
                                    Stretch="Fill" 
-                                   Source="/Images/Logo/users.png"/>
+                                   Source="/Images/Logo/assign.png"/>
                             <Label Margin="0 2 0 0"
                                    Foreground="#e5e5e5" 
                                    HorizontalAlignment="Center" 
-                                   Content="Personel Sorgulama" 
+                                   Content="Yönetici Ata" 
                                    VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="StokSorgulamaBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="DepartmanlarBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Height="64"
-                                   Width="64"
-                                   RenderOptions.BitmapScalingMode="HighQuality"
-                                   Stretch="Fill" 
-                                   Source="/Images/Logo/stock.png"/>
-                            <Label Margin="0 2 0 0" 
+                            <Image  Height="64"
+                                    Width="64"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Stretch="Fill" 
+                                    Source="/Images/Logo/report.png"/>
+                            <Label Margin="0 2 0 0"
                                    Foreground="#e5e5e5" 
                                    HorizontalAlignment="Center" 
-                                   Content="Stok Sorgulama" 
+                                   Content="Departmanlar" 
                                    VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
@@ -55,8 +55,8 @@
                         <StackPanel VerticalAlignment="Center">
                             <Image Height="64"
                                    Width="64"
+                                   Stretch="Fill" 
                                    RenderOptions.BitmapScalingMode="HighQuality"
-                                   Stretch="Fill"  
                                    Source="/Images/Logo/back.png"/>
                         </StackPanel>
                     </Border>

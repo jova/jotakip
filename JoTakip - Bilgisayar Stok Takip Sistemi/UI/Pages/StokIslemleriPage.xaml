@@ -5,8 +5,8 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UI"
       mc:Ignorable="d" 
-      d:DesignHeight="600" d:DesignWidth="800"
-      Title="StokIslemleriPage">
+      d:DesignHeight="800" d:DesignWidth="800"
+      Title="Stok İşlemleri">
 
     <Border>
         <Border CornerRadius="10"
@@ -21,23 +21,35 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
 
-                    <Border x:Name="DemirbasEklemeBorder" Margin="5 5 5 5" Background="#999999" Width="140" Height="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="SatinAlBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="140" Height="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/plus.png"/>
-                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Demirbaş Ekleme" VerticalContentAlignment="Center"/>
+                            <Image Stretch="Fill"
+                                   Width="64"
+                                   Height="64"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                   Source="/Images/Logo/plus.png"/>
+                            <Label Margin="0 2 0 0" Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Satın Al" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="DemirbasCikarmaBorder" Margin="5 5 5 5" Background="#999999" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="UrunSilBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/remove.png"/>
-                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Demirbaş Çıkarma" VerticalContentAlignment="Center"/>
+                            <Image  Stretch="Fill"
+                                    Width="64"
+                                    Height="64"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="/Images/Logo/remove.png"/>
+                            <Label Margin="0 2 0 0" Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Ürün Sil" VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
 
-                    <Border x:Name="GeriBorder" Margin="5 5 5 5" Background="#999999" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="GeriBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/back.png"/>
+                            <Image  Stretch="Fill" 
+                                    Height="64"
+                                    Width="64"
+                                    RenderOptions.BitmapScalingMode="HighQuality"
+                                    Source="/Images/Logo/back.png"/>
                         </StackPanel>
                     </Border>
 

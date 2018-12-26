@@ -15,7 +15,7 @@
                         HorizontalAlignment="Center" 
                         TextBlock.TextAlignment="Center">
 
-                <Border Background="#999999" 
+                <Border Background="#6E6E6E" 
                         CornerRadius="10"
                         Padding="15 15 15 15"
                         Width="200"
@@ -27,10 +27,10 @@
                         <TextBlock Text="Giriş Yap" FontSize="30" Foreground="#e5e5e5" Margin="0 0 0 5"/>
 
                         <!--Kullanıcı adı-->
-                        <TextBox x:Name="UsernameText" MaxLength="20" Tag="Kullanıcı adı" CaretBrush="#e5e5e5" Background="#999999" Margin="18 0 18 0"/>
+                        <TextBox x:Name="UsernameText" MaxLength="20" Tag="Kullanıcı adı" CaretBrush="#e5e5e5" Background="#6E6E6E" Margin="18 0 18 0"/>
 
                         <!--Parola-->
-                        <PasswordBox x:Name="PasswordText" MaxLength="20" Tag="Parola" CaretBrush="#e5e5e5" Background="#999999" Margin="18 0 18 0"/>
+                        <PasswordBox x:Name="PasswordText" MaxLength="20" Tag="Parola" CaretBrush="#e5e5e5" Background="#6E6E6E" Margin="18 0 18 0"/>
 
                         <!--İleri-->
                         <Button Content="İleri" Click="Button_ClickAsync" HorizontalAlignment="Center"/>

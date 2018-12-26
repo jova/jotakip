@@ -60,10 +60,10 @@
                             <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="Beige"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="Azure"/>
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="Beige"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="Azure"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -114,10 +114,10 @@
                             <Setter Property="Opacity" TargetName="border" Value="0.56"/>
                         </Trigger>
                         <Trigger Property="IsMouseOver" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="Beige"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="Azure"/>
                         </Trigger>
                         <Trigger Property="IsKeyboardFocused" Value="True">
-                            <Setter Property="BorderBrush" TargetName="border" Value="Beige"/>
+                            <Setter Property="BorderBrush" TargetName="border" Value="Azure"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -127,7 +127,7 @@
     </Style>
 
     <Style TargetType="{x:Type ToolTip}" BasedOn="{StaticResource BaseStyle}">
-        <Setter Property="Background" Value="Beige"/>
+        <Setter Property="Background" Value="Azure"/>
     </Style>
 
 </ResourceDictionary>

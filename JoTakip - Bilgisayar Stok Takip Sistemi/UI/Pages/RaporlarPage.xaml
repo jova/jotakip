@@ -1,4 +1,4 @@
-﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.SorgulamalarPage"
+﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.RaporlarPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -6,7 +6,7 @@
       xmlns:local="clr-namespace:UI"
       mc:Ignorable="d" 
       d:DesignHeight="600" d:DesignWidth="900"
-      Title="SorgulamalarPage">
+      Title="Raporlar">
 
     <Border>
         <Border CornerRadius="10"
@@ -21,22 +21,22 @@
 
                 <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Center">
 
-                    <Border x:Name="PersonelSorgulamaBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="140" Height="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    <Border x:Name="ZimmetDokumuBorder" Margin="5 5 5 5" Background="#6E6E6E" Width="140" Height="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
                             <Image Height="64"
                                    Width="64"
                                    RenderOptions.BitmapScalingMode="HighQuality"
                                    Stretch="Fill" 
-                                   Source="/Images/Logo/users.png"/>
+                                   Source="/Images/Logo/report.png"/>
                             <Label Margin="0 2 0 0"
                                    Foreground="#e5e5e5" 
                                    HorizontalAlignment="Center" 
-                                   Content="Personel Sorgulama" 
+                                   Content="Zimmet Dökümü" 
                                    VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
-
-                    <Border x:Name="StokSorgulamaBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                    
+                    <Border x:Name="StokDokumuBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
                             <Image Height="64"
                                    Width="64"
@@ -46,7 +46,22 @@
                             <Label Margin="0 2 0 0" 
                                    Foreground="#e5e5e5" 
                                    HorizontalAlignment="Center" 
-                                   Content="Stok Sorgulama" 
+                                   Content="Stok Dökümü" 
+                                   VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="AtikDokumuBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Height="64"
+                                   Width="64"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Stretch="Fill" 
+                                   Source="/Images/Logo/garbage.png"/>
+                            <Label Margin="0 2 0 0" 
+                                   Foreground="#e5e5e5" 
+                                   HorizontalAlignment="Center" 
+                                   Content="Atık Dökümü" 
                                    VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>

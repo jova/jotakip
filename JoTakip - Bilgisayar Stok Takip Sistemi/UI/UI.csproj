@@ -39,6 +39,12 @@
     <ApplicationIcon>Images\logo-normal.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
     </Reference>
@@ -52,6 +58,7 @@
     <Reference Include="System">
       <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
@@ -76,8 +83,8 @@
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
     <Compile Include="Pages\BasePage.cs" />
-    <Compile Include="Pages\DemirbasAtamalariPage.xaml.cs">
-      <DependentUpon>DemirbasAtamalariPage.xaml</DependentUpon>
+    <Compile Include="Pages\DepartmanIslemleriPage.xaml.cs">
+      <DependentUpon>DepartmanIslemleriPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\DemirbasCikarmaPage.xaml.cs">
       <DependentUpon>DemirbasCikarmaPage.xaml</DependentUpon>
@@ -97,8 +104,8 @@
     <Compile Include="Pages\OdaGuncellemePage.xaml.cs">
       <DependentUpon>OdaGuncellemePage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OdaIslemleriPage.xaml.cs">
-      <DependentUpon>OdaIslemleriPage.xaml</DependentUpon>
+    <Compile Include="Pages\PersonelIslemleriPage.xaml.cs">
+      <DependentUpon>PersonelIslemleriPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
@@ -108,6 +115,9 @@
     </Compile>
     <Compile Include="Pages\PersonelSorgulamaPage.xaml.cs">
       <DependentUpon>PersonelSorgulamaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\RaporlarPage.xaml.cs">
+      <DependentUpon>RaporlarPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\SorgulamalarPage.xaml.cs">
       <DependentUpon>SorgulamalarPage.xaml</DependentUpon>
@@ -141,7 +151,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Pages\DemirbasAtamalariPage.xaml">
+    <Page Include="Pages\DepartmanIslemleriPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -169,7 +179,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\OdaIslemleriPage.xaml">
+    <Page Include="Pages\PersonelIslemleriPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -186,6 +196,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\PersonelSorgulamaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\RaporlarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -299,9 +313,6 @@
     <Resource Include="Images\Logo\tick.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Images\Logo\user.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Images\Logo\users.png" />
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +349,42 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\logo-normal.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{451FACF1-BF39-4989-A3BD-22484CB5C05E}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Core\Core.csproj">
+      <Project>{D158513B-1268-474A-B4C9-96EAAFA20B7B}</Project>
+      <Name>Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entities\Entities.csproj">
+      <Project>{29822DAD-E4BB-458C-B7E2-1C88F1F2393A}</Project>
+      <Name>Entities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\boy.png" />
+    <Resource Include="Images\Logo\girl.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\team.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\report.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\department.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\addpersonal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\assign.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\garbage.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.2\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\dotnet\Fody.targets')" />

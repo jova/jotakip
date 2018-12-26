@@ -15,7 +15,9 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using WinForms = System.Windows.Forms; 
 using System.IO;
-using System.Diagnostics; 
+using System.Diagnostics;
+using Business.Abstract;
+using Business;
 
 namespace UI
 {
@@ -27,21 +29,25 @@ namespace UI
         public MainMenuPage()
         {
             InitializeComponent();
-            //NameText.Text += Sistem.MevcutKullanici.Ad + " " + Sistem.MevcutKullanici.Soyad;
-            //YetkiText.Text += Sistem.MevcutKullanici.Yetki;
+            //NameText.Text += Session.CurrentUser.Name + " " + Session.CurrentUser.LastName;
+            //YetkiText.Text += Session.CurrentUser.UserType == Core.UserType.Admin ? "Yönetici" : "Satış Elemanı";
+            //if (Session.CurrentUser.Gender == Core.Gender.Male) ImgFemaleUser.Visibility = Visibility.Hidden;
+            //else ImgMaleUser.Visibility = Visibility.Hidden;
         }
 
+        // Mouse Enter
         private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 152, 136));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153,153,153));
             b.Background = brush;
         }
 
+        // Mouse Leave
         private void Border_MouseLeave(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(110, 110, 110));
             b.Background = brush;
         }
 
@@ -54,29 +60,32 @@ namespace UI
                     await this.AnimateOut();
                     this.NavigationService.Navigate(new StokIslemleriPage());
                     return;
-                case "OdaIslemleriBorder":
+                case "PersonelIslemleriBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new OdaIslemleriPage());
+                    this.NavigationService.Navigate(new PersonelIslemleriPage());
                     return;
-                case "DemirbasAtamalariBorder":
+                case "DepartmanIslemleriBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new DemirbasAtamalariPage());
+                    this.NavigationService.Navigate(new DepartmanIslemleriPage());
                     return;
                 case "SorgulamalarBorder":
                     await this.AnimateOut();
                     this.NavigationService.Navigate(new SorgulamalarPage());
                     return;
                 case "RaporlarBorder":
-                    WinForms.FolderBrowserDialog folderDialog = new WinForms.FolderBrowserDialog();
-                    folderDialog.ShowNewFolderButton = false;
-                    folderDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
-                    WinForms.DialogResult result = folderDialog.ShowDialog();
-                    if (result == WinForms.DialogResult.OK)
-                    {
-                        String sPath = folderDialog.SelectedPath;
-                        //Sistem.RaporOlustur(sPath);
-                    }
+                    await this.AnimateOut();
+                    this.NavigationService.Navigate(new RaporlarPage());
                     return;
+                //WinForms.FolderBrowserDialog folderDialog = new WinForms.FolderBrowserDialog();
+                //folderDialog.ShowNewFolderButton = false;
+                //folderDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
+                //WinForms.DialogResult result = folderDialog.ShowDialog();
+                //if (result == WinForms.DialogResult.OK)
+                //{
+                //    String sPath = folderDialog.SelectedPath;
+                //    Sistem.RaporOlustur(sPath);
+                //}
+                //return;
                 default:
                     break;
             }
@@ -85,6 +94,7 @@ namespace UI
         private async void Button_ClickAsync(object sender, RoutedEventArgs e)
         {
             await this.AnimateOut();
+            Session.CurrentUser = null;
             this.NavigationService.Navigate(new LoginPage());
         }
     }

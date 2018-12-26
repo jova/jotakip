@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,30 +24,24 @@ namespace UI
         public StokIslemleriPage()
         {
             InitializeComponent();
-            /*if (Sistem.MevcutKullanici.Yetki == "Normal")
+            if (Session.CurrentUser.UserType == Core.UserType.BuyerManager)
             {
-                DemirbasEklemeBorder.IsEnabled = false;
-                DemirbasEklemeBorder.Opacity = 0.5;
+                UrunSilBorder.IsEnabled = false;
+                UrunSilBorder.Opacity = 0.5;
             }
-                
-            if (Sistem.MevcutKullanici.Yetki == "Admin")
-            {
-                DemirbasEklemeBorder.IsEnabled = true;
-                DemirbasEklemeBorder.Opacity = 1;
-            }*/
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 152, 136));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
             b.Background = brush;
         }
 
         private void Border_MouseLeave(object sender, MouseEventArgs e)
         {
             Border b = sender as Border;
-            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(153, 153, 153));
+            SolidColorBrush brush = new SolidColorBrush(Color.FromRgb(110, 110, 110));
             b.Background = brush;
         }
         
@@ -56,10 +51,10 @@ namespace UI
             await this.AnimateOut();
             switch (b.Name)
             {
-                case "DemirbasEklemeBorder":
+                case "SatinAlBorder":
                     this.NavigationService.Navigate(new DemirbasEklemePage());
                     return;
-                case "DemirbasCikarmaBorder":
+                case "UrunSilBorder":
                     this.NavigationService.Navigate(new DemirbasCikarmaPage());
                     return;
                 case "GeriBorder":

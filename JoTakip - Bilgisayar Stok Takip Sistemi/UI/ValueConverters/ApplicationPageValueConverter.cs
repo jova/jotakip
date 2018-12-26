@@ -17,6 +17,9 @@ namespace UI
                 case ApplicationPage.Login:
                     return new LoginPage();
 
+                case ApplicationPage.Menu:
+                    return new MainMenuPage();
+
                 default:
                     Debugger.Break();
                     return null;

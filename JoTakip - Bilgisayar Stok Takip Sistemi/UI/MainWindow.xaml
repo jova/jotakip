@@ -109,7 +109,7 @@
             />
     </WindowChrome.WindowChrome>
 
-    <Border Background="Gray">
+    <Border Background="Azure">
         <Grid>
             <!-- background image -->
             <Grid.Background>
