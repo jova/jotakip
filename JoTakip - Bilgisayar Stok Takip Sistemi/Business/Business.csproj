@@ -51,11 +51,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Abstract\IDepartmentService.cs" />
+    <Compile Include="Abstract\ILoginService.cs" />
     <Compile Include="Abstract\IPersonalService.cs" />
     <Compile Include="Abstract\IProductService.cs" />
     <Compile Include="Abstract\ISalesmanService.cs" />
     <Compile Include="Abstract\IWarehouseService.cs" />
     <Compile Include="Concrete\DepartmentManager.cs" />
+    <Compile Include="Concrete\LoginManager.cs" />
     <Compile Include="Concrete\PersonalManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
     <Compile Include="Concrete\SalesmanManager.cs" />
