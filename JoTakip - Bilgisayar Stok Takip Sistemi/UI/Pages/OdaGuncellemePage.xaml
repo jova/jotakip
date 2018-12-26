@@ -1,0 +1,93 @@
+﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.OdaGuncellemePage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="700" d:DesignWidth="800"
+      Title="OdaGuncellemePage">
+
+    <Border>
+        <Border 
+                CornerRadius="10"
+                Margin="15 15 15 15"
+                Width="750"
+                Height="500">
+            <Grid Margin="10 10 10 10" Height="400">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <Border Grid.Row="0" Grid.Column="0" Margin="5 5 5 5" Background="#999999" CornerRadius="10">
+                    <DockPanel Margin="15 5 15 5">
+                        <TextBlock Text="Oda Listesi" FontSize="35" Foreground="#e5e5e5" VerticalAlignment="Center"/>
+                    </DockPanel>
+                </Border>
+
+                <StackPanel Grid.Row="1" Grid.Column="0" Orientation="Vertical" Margin="5 5 5 5">
+                    <DataGrid x:Name="OdaDataGrid" VerticalScrollBarVisibility="Auto" IsReadOnly="True" EnableRowVirtualization="False" SelectionChanged="OdaDataGrid_SelectionChanged" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Height="190" AutoGenerateColumns="False">
+                        <DataGrid.Resources>
+                            <Style TargetType="{x:Type DataGridColumnHeader}">
+                                <Setter Property="Background" Value="#999999"/>
+                                <Setter Property="Foreground" Value="#e5e5e5"/>
+                                <Setter Property="BorderThickness" Value="0,0,1,2"/>
+                                <Setter Property="BorderBrush" Value="#e5e5e5"/>
+                            </Style>
+                        </DataGrid.Resources>
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header=" ID" Binding="{Binding odaID}" Width="80" IsReadOnly="True"/>
+                            <DataGridTextColumn Header=" Ad" Binding="{Binding odaAdi}" Width="120" IsReadOnly="True"/>
+                            <DataGridTextColumn Header=" Oda Sorumlusu" Binding="{Binding AdSoyad}" Width="510" IsReadOnly="True"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </StackPanel>
+
+
+
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Right">
+                            <Border x:Name="GeriBorder" Margin="5 5 5 5" Background="#999999" Height="80" Width="80" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                                <StackPanel VerticalAlignment="Center">
+                                    <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/back.png"/>
+                                </StackPanel>
+                            </Border>
+                            <Border x:Name="GuncelleBorder" Margin="5 5 5 5" Background="#999999" Height="80" Width="80" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                                <StackPanel VerticalAlignment="Center">
+                                    <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/update.png"/>
+                                </StackPanel>
+                            </Border>
+                        </StackPanel>
+
+                        <StackPanel Grid.Column="0" Orientation="Vertical" VerticalAlignment="Center">
+                            <Border Margin="5 5 5 5" Background="#999999" CornerRadius="10" Height="40">
+                                <DockPanel Margin="15 5 15 5">
+                                    <TextBlock Text="Ad: " Foreground="#e5e5e5" VerticalAlignment="Center"/>
+                                    <TextBox x:Name="NameText" Background="#999999" IsEnabled="False" CaretBrush="#e5e5e5" VerticalAlignment="Center"/>
+                                </DockPanel>
+                            </Border>
+                        <Border Margin="5 5 5 5" Background="#999999" CornerRadius="10" Height="40">
+                            <DockPanel Margin="15 5 15 5">
+                                <TextBlock Text="Oda Sorumlusu: " Foreground="#e5e5e5" VerticalAlignment="Center"/>
+                                <ComboBox x:Name="OdaSorumlusuComboBox" Background="Transparent"/>
+                            </DockPanel>
+                        </Border>
+                    </StackPanel>
+
+                    </Grid>
+              
+
+
+            </Grid>
+        </Border>
+    </Border>
+
+</local:BasePage>

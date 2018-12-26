@@ -1,0 +1,97 @@
+﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.MainMenuPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="800"
+      Title="MainMenuPage">
+
+    <Border>
+        <Border CornerRadius="10"
+                Margin="15 15 15 15"
+                Width="750"
+                Height="500">
+            <Grid Margin="10 00 10 110" Height="280">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+
+                <StackPanel Margin="40 5 5 5" Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Left">
+                    <Border Margin="5 5 5 5" Background="#999999" Height="100" Width="300" CornerRadius="10">
+
+                        <StackPanel>
+                            <Grid Margin="10" VerticalAlignment="Center" Width="300" HorizontalAlignment="Center">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="2*"/>
+                                </Grid.ColumnDefinitions>
+
+                                <StackPanel VerticalAlignment="Center" HorizontalAlignment="Center">
+                                    <Image Height="80" Width="80" Stretch="Uniform" Source="/Demirbas Takip Sistemi;component/Images/Logo/user.png"/>
+                                </StackPanel>
+
+                                <StackPanel Grid.Column="1">
+                                    <TextBlock x:Name="NameText" Text="Personel: " Margin="5 15 5 0" Foreground="#e5e5e5"/>
+                                    <TextBlock x:Name="YetkiText" Text="Yetki: " Margin="5 5 5 0" Foreground="#e5e5e5"/>
+                                    <Button Content="Çıkış" Click="Button_ClickAsync" Margin="5 5 5 5"/>
+                                </StackPanel>
+
+
+                            </Grid>
+                            <StackPanel>
+                            </StackPanel>
+
+
+                        </StackPanel>
+
+                    </Border>
+
+                </StackPanel>
+
+                <StackPanel Grid.Row="1" Orientation="Horizontal" HorizontalAlignment="Center">
+
+                    <Border x:Name="StokIslemleriBorder" Margin="5 5 5 5" Background="#999999" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/stock.png"/>
+                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Stok İşlemleri" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="OdaIslemleriBorder" Margin="5 5 5 5" Background="#999999" Width="120" Height="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/key.png"/>
+                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Oda İşlemleri" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border  x:Name="DemirbasAtamalariBorder" Margin="5 5 5 5" Background="#999999" Width="120" Height="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/stocktoroom.png"/>
+                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Demirbaş Atamaları" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="SorgulamalarBorder" Margin="5 5 5 5" Background="#999999" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Source="/Demirbas Takip Sistemi;component/Images/Logo/query.png" Stretch="None" />
+                            <Label HorizontalAlignment="Center" Foreground="#e5e5e5" Content="Sorgulamalar" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="RaporlarBorder" Margin="5 5 5 5" Background="#999999" Height="120" Width="120" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/newspaper.png"/>
+                            <Label Foreground="#e5e5e5" HorizontalAlignment="Center" Content="Raporlar" VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+
+                </StackPanel>
+            </Grid>
+        </Border>
+    </Border>
+
+</local:BasePage>

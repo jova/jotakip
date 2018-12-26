@@ -5,8 +5,117 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UI"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+        WindowStyle="None"
+        ResizeMode="CanMinimize"
+        AllowsTransparency="True"
+        WindowStartupLocation="CenterScreen"
+        x:Name="AppWindow"
+        Title="JoTakip - Bilgisayar Stok Takip Sistemi" Height="600" Width="800">
+
+    <Window.Resources>
+        <Style TargetType="{x:Type local:MainWindow}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Window}">
+                        <!--Outer border with the dropshadow margin-->
+                        <Border Padding="{Binding OuterMarginSizeThickness, FallbackValue=10}">
+
+                            <!--Main window outline-->
+                            <Grid>
+
+                                <!--Opacity mask for corners on grid-->
+                                <Border x:Name="Container" 
+                                        Background="{StaticResource BackgroundLightBrush}"
+                                        CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"/>
+
+                                <!--Window border and dropshadow-->
+                                <Border CornerRadius="{Binding WindowCornerRadius, FallbackValue=10}"
+                                        Background="{Binding ForegroundLightBrush, FallbackValue=White}">
+                                    <Border.Effect>
+                                        <DropShadowEffect ShadowDepth="0" Opacity="0.2"/>
+                                    </Border.Effect>
+                                </Border>
+
+                                <!--The main window content-->
+                                <Grid>
+
+                                    <!--Corner clipping-->
+                                    <Grid.OpacityMask>
+                                        <VisualBrush Visual="{Binding ElementName=Container}"/>
+                                    </Grid.OpacityMask>
+
+                                    <Grid.RowDefinitions>
+
+                                        <!--Title bar-->
+                                        <RowDefinition Height="{Binding TitleHeightGridLenght, FallbackValue=32}"/>
+
+                                        <!--Window content-->
+                                        <RowDefinition Height="*"/>
+
+                                    </Grid.RowDefinitions>
+
+                                    <!--Title bar-->
+                                    <Grid Grid.Column="0" Panel.ZIndex="1">
+
+                                        <Grid.ColumnDefinitions>
+
+                                            <!--Icon-->
+                                            <ColumnDefinition Width="Auto"/>
+                                            <!--Title-->
+                                            <ColumnDefinition Width="*"/>
+                                            <!--Window buttons-->
+                                            <ColumnDefinition Width="Auto"/>
+
+                                        </Grid.ColumnDefinitions>
+
+                                        <!--Icon-->
+                                        <Button Style="{StaticResource SystemIconButton}" Command="{Binding MenuCommand}">
+                                            <Image Source="/Images/Logo/logo-normal.png"/>
+                                        </Button>
+
+                                        <!--Title-->
+                                        <Viewbox Grid.Column="0" Grid.ColumnSpan="3" Margin="0">
+                                            <TextBlock Style="{StaticResource HeaderText}" Text="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=Title, FallbackValue='Hoşgeldiniz'}"/>
+                                        </Viewbox>
+
+                                        <!--Window buttons-->
+                                        <StackPanel Grid.Column="2" Orientation="Horizontal">
+                                            <Button Command="{Binding MinimizeCommand}" Style="{StaticResource WindowControlButton}" Content="_"/>
+                                            <Button Command="{Binding CloseCommand}" Style="{StaticResource WindowCloseButton}" Content="X"/>
+                                        </StackPanel>
+
+                                    </Grid>
+
+                                    <!--Page Content-->
+                                    <Border Grid.Row="1" Padding="{Binding InnerContentPadding}">
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Border>
+
+                                </Grid>
+
+                            </Grid>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+
+    <WindowChrome.WindowChrome>
+        <WindowChrome
+            ResizeBorderThickness="{Binding ResizeBorderThickness}"
+            CaptionHeight="{Binding TitleHeight}"
+            GlassFrameThickness="0"
+            />
+    </WindowChrome.WindowChrome>
+
+    <Border Background="Gray">
+        <Grid>
+            <!-- background image -->
+            <Grid.Background>
+                <ImageBrush Stretch="UniformToFill" Opacity="0.2" ImageSource="/Images/Backgrounds/background.png" />
+            </Grid.Background>
+            <Frame x:Name="MainFrame" Content="{Binding CurrentPage, Converter={local:ApplicationPageValueConverter}}" NavigationUIVisibility="Hidden" Background="Transparent" />
+        </Grid>
+    </Border>
 </Window>

@@ -1,0 +1,48 @@
+﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.LoginPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:UI"
+      mc:Ignorable="d" 
+      d:DesignHeight="400" d:DesignWidth="400"
+      Title="LoginPage">
+
+    <Border>
+        <Grid>
+            <!--Main content-->
+            <StackPanel VerticalAlignment="Center" 
+                        HorizontalAlignment="Center" 
+                        TextBlock.TextAlignment="Center">
+
+                <Border Background="#999999" 
+                        CornerRadius="10"
+                        Padding="15 15 15 15"
+                        Width="200"
+                        Margin="50 50 50 50">
+
+                    <StackPanel>
+
+                        <!--Giriş Yap-->
+                        <TextBlock Text="Giriş Yap" FontSize="30" Foreground="#e5e5e5" Margin="0 0 0 5"/>
+
+                        <!--Kullanıcı adı-->
+                        <TextBox x:Name="UsernameText" MaxLength="20" Tag="Kullanıcı adı" CaretBrush="#e5e5e5" Background="#999999" Margin="18 0 18 0"/>
+
+                        <!--Parola-->
+                        <PasswordBox x:Name="PasswordText" MaxLength="20" Tag="Parola" CaretBrush="#e5e5e5" Background="#999999" Margin="18 0 18 0"/>
+
+                        <!--İleri-->
+                        <Button Content="İleri" Click="Button_ClickAsync" HorizontalAlignment="Center"/>
+
+                        <TextBlock x:Name="ErrorText" Visibility="Hidden" Text="Geçersiz kullanıcı adı/parola" FontSize="10" Foreground="#e5e5e5" Margin="0 0 0 5"/>
+
+                    </StackPanel>
+
+                </Border>
+
+            </StackPanel>
+
+        </Grid>
+    </Border>
+</local:BasePage>

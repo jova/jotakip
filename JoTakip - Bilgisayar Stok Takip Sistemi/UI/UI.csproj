@@ -4,16 +4,17 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{BFFFF7B1-4687-4390-B96C-786E283D1D05}</ProjectGuid>
+    <ProjectGuid>{80F8D04A-FD76-4B8F-A7BD-A474E83028A8}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>UI</RootNamespace>
-    <AssemblyName>UI</AssemblyName>
+    <AssemblyName>JoTakip - Bilgisayar Stok Takip Sistemi</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -34,9 +35,25 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Images\logo-normal.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="System" />
+    <Reference Include="itextsharp, Version=5.5.12.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.12\lib\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Windows.Shell, Version=3.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Windows.Shell.3.0.1.0\lib\net40\Microsoft.Windows.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="PropertyChanged, Version=1.52.1.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
+      <HintPath>..\packages\PropertyChanged.Fody.1.52.1\lib\netstandard10\PropertyChanged.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="System">
+      <HintPath>..\..\..\..\..\..\..\..\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -55,6 +72,60 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Animation\PageAnimation.cs" />
+    <Compile Include="Animation\PageAnimations.cs" />
+    <Compile Include="Animation\StoryboardHelpers.cs" />
+    <Compile Include="Pages\BasePage.cs" />
+    <Compile Include="Pages\DemirbasAtamalariPage.xaml.cs">
+      <DependentUpon>DemirbasAtamalariPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DemirbasCikarmaPage.xaml.cs">
+      <DependentUpon>DemirbasCikarmaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\DemirbasEklemePage.xaml.cs">
+      <DependentUpon>DemirbasEklemePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OdaCikarmaPage.xaml.cs">
+      <DependentUpon>OdaCikarmaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OdadanCikarmaPage.xaml.cs">
+      <DependentUpon>OdadanCikarmaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OdaEklemePage.xaml.cs">
+      <DependentUpon>OdaEklemePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OdaGuncellemePage.xaml.cs">
+      <DependentUpon>OdaGuncellemePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OdaIslemleriPage.xaml.cs">
+      <DependentUpon>OdaIslemleriPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\MainMenuPage.xaml.cs">
+      <DependentUpon>MainMenuPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\OdayaEklemePage.xaml.cs">
+      <DependentUpon>OdayaEklemePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\PersonelSorgulamaPage.xaml.cs">
+      <DependentUpon>PersonelSorgulamaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\SorgulamalarPage.xaml.cs">
+      <DependentUpon>SorgulamalarPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StokIslemleriPage.xaml.cs">
+      <DependentUpon>StokIslemleriPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\StokSorgulamaPage.xaml.cs">
+      <DependentUpon>StokSorgulamaPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ValueConverters\ApplicationPageValueConverter.cs" />
+    <Compile Include="ValueConverters\BaseValueConverter.cs" />
+    <Compile Include="ValueConverters\BooleanToVisibilityConverter.cs" />
+    <Compile Include="ViewModel\Base\BaseViewModel.cs" />
+    <Compile Include="ViewModel\Base\RelayParameterizedCommand.cs" />
+    <Compile Include="ViewModel\Base\RelayCommand.cs" />
+    <Compile Include="ViewModel\LoginViewModel.cs" />
+    <Compile Include="ViewModel\WindowViewModel.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -63,12 +134,98 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="AttachedProperties\BaseAttachedProperty.cs" />
+    <Compile Include="AttachedProperties\PasswordBoxAttachedProperties.cs" />
+    <Compile Include="DataModels\ApplicationPage.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\DemirbasAtamalariPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DemirbasCikarmaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\DemirbasEklemePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OdaCikarmaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OdadanCikarmaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OdaEklemePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OdaGuncellemePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OdaIslemleriPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\LoginPage.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\OdayaEklemePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\PersonelSorgulamaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\SorgulamalarPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StokIslemleriPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\StokSorgulamaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Buttons.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Fonts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Texts.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Styles\Windows.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Pages\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -86,6 +243,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Resource Include="Fonts\Raleway-Light.ttf" />
+    <Resource Include="Fonts\Raleway-Regular.ttf" />
+    <Resource Include="Fonts\Simplifica.ttf" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -94,5 +255,96 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="FodyWeavers.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Backgrounds\background.png" />
+    <Resource Include="Images\Logo\logo-small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\boxes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\newspaper.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\family-room.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\key.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\stock.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\remove.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\update.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\back.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\stocktoroom.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\query.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\tick.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\user.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\users.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\Logo\logo-normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\logo-normal.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="..\packages\Fody.1.29.2\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.1.29.2\build\dotnet\Fody.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Fody.1.29.2\build\dotnet\Fody.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Fody.1.29.2\build\dotnet\Fody.targets'))" />
+  </Target>
 </Project>
