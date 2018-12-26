@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    interface ISalesmanService
+    interface IUserService
     {
-        void Add(Salesman salesman);
-        void Update(Salesman salesman);
-        void Delete(Salesman salesman);
-        List<Salesman> GetList();
+        void Add(User salesman);
+        void Update(User salesman);
+        void Delete(User salesman);
+        List<User> GetList();
     }
 }

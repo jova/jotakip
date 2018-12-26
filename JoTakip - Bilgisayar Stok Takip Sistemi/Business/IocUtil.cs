@@ -31,7 +31,7 @@ namespace Business
                 Component.For<IDepartmentService>().ImplementedBy<DepartmentManager>(),
                 Component.For<IPersonalService>().ImplementedBy<PersonalManager>(),
                 Component.For<IProductService>().ImplementedBy<ProductManager>(),
-                Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
+                Component.For<IUserService>().ImplementedBy<UserManager>(),
                 Component.For<IWarehouseService>().ImplementedBy<WarehouseManager>()
                 Component.For<ILoginService>().ImplementedBy<LoginManager>()
                 //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
