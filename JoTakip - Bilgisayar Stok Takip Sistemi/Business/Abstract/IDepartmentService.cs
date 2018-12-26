@@ -9,9 +9,7 @@ namespace Business.Abstract
 {
     public interface IDepartmentService
     {
-        void Add(Department department);
-        void Update(Department department);
-        void Delete(Department department);
         List<Department> GetList();
+        Department Get();
     }
 }
