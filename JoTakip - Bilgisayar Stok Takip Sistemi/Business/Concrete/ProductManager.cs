@@ -2,6 +2,7 @@
 using DataAccess.Abstract;
 using Entities.Concrete;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Business.Concrete
 {
@@ -18,19 +19,26 @@ namespace Business.Concrete
 
         public void AssignProduct(Personal personal, Product product)
         {
-            product.AssignedById = personal.Id;
-            productDal.Update(product);
+            IWarehouseService warehouse = new WarehouseManager(productDal);
+            warehouse.GetProducts().Single(x => x.Id == product.Id).Count -= 1;
+
+            product.Count = 1;
+
+            if (warehouse.GetProducts().Single(x => x.Id == product.Id).Count > 0)
+            {
+                product.AssignedById = personal.Id;
+                productDal.Update(product);
+            }
+            else
+            {
+                productDal.Delete(product);
+            }
         }
 
-        public void BuyProduct(Product product, int count)
+        public void BuyProduct(Product product)
         {
             IWarehouseService warehouse = new WarehouseManager(productDal);
-
-            List<Product> products = new List<Product>();
-
-            for (int i = 0; i < count; i++) products.Add(product);
-
-            warehouse.AddProducts(products);
+            warehouse.AddProduct(product);
         }
 
         public void WasteProduct(Product product)

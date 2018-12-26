@@ -9,9 +9,7 @@ namespace Business.Abstract
 {
     public interface IPersonalService
     {
-        void Add(Personal personal);
-        void Update(Personal personal);
-        void Delete(Personal personal);
         List<Personal> GetList();
+        Personal Get(int personalId);
     }
 }

@@ -18,24 +18,14 @@ namespace Business.Concrete
             this.personalDal = personalDal;
         }
 
-        public void Add(Personal personal)
+        public Personal Get(int personalId)
         {
-            personalDal.Add(personal);
-        }
-
-        public void Delete(Personal personal)
-        {
-            personalDal.Delete(personal);
+            return personalDal.Get(x => x.Id == personalId);
         }
 
         public List<Personal> GetList()
         {
             return personalDal.GetList();
-        }
-
-        public void Update(Personal personal)
-        {
-            personalDal.Update(personal);
         }
     }
 }

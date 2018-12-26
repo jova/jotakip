@@ -28,9 +28,9 @@ namespace Business.Concrete
             userDal.Delete(user);
         }
 
-        public User Get()
+        public User Get(int userId)
         {
-            throw new NotImplementedException();
+            return userDal.Get(x => x.Id == userId);
         }
 
         public List<User> GetList()

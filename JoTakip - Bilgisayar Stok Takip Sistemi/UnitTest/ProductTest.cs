@@ -17,9 +17,9 @@ namespace UnitTest
             IProductService productService = IocUtil.Resolve<IProductService>();
             IWarehouseService warehouse = IocUtil.Resolve<IWarehouseService>();
 
-            Product product = new Product() { Name = "buy product test" };
+            Product product = new Product() { Name = "buy product test", Count = 5 };
 
-            productService.BuyProduct(product, 5);
+            productService.BuyProduct(product);
 
             Assert.AreEqual(5, warehouse.GetProducts().Count(x => x.Name == product.Name));
         }
@@ -33,7 +33,7 @@ namespace UnitTest
 
             Personal personal = new Personal() { Name = "Test", LastName = "Personal", StillEmployed = true };
 
-            personalService.Add(personal);
+            //personalService.Add(personal);
 
             Product product = warehouse.GetProducts()[0];
 

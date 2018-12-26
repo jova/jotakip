@@ -18,9 +18,9 @@ namespace Business.Concrete
             this.productDal = productDal;
         }
 
-        public void AddProducts(List<Product> products)
+        public void AddProduct(Product product)
         {
-            this.productDal.AddRange(products);
+            this.productDal.Add(product);
         }
 
         public void DeleteProduct(Product product)

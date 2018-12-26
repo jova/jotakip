@@ -18,14 +18,9 @@ namespace Business.Concrete
             this.departmentDal = departmentDal;
         }
 
-        public void Add(Department department)
+        public Department Get(int departmentId)
         {
-            departmentDal.Add(department);
-        }
-
-        public void Delete(Department department)
-        {
-            departmentDal.Delete(department);
+            return departmentDal.Get(x => x.Id == departmentId);
         }
 
         public List<Department> GetList()
@@ -33,9 +28,5 @@ namespace Business.Concrete
             return departmentDal.GetList();
         }
 
-        public void Update(Department department)
-        {
-            departmentDal.Update(department);
-        }
     }
 }
