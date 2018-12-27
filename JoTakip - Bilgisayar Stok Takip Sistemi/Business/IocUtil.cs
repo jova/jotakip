@@ -27,14 +27,14 @@ namespace Business
                 Component.For<IPersonalDal>().ImplementedBy<PersonalDal>(),
                 Component.For<IDepartmentDal>().ImplementedBy<DepartmentDal>(),
                 Component.For<IUserDal>().ImplementedBy<UserDal>(),
+                Component.For<IWasteProductDal>().ImplementedBy<WasteProductDal>(),
                 Component.For<IDepartmentService>().ImplementedBy<DepartmentManager>(),
                 Component.For<IPersonalService>().ImplementedBy<PersonalManager>(),
                 Component.For<IProductService>().ImplementedBy<ProductManager>(),
                 Component.For<IUserService>().ImplementedBy<UserManager>(),
                 Component.For<IWarehouseService>().ImplementedBy<WarehouseManager>(),
-                Component.For<ILoginService>().ImplementedBy<LoginManager>()
-                //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
-                //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>(),
+                Component.For<ILoginService>().ImplementedBy<LoginManager>(),
+                Component.For<IWasteProductService>().ImplementedBy<WasteProductManager>()
                 //Component.For<ISalesmanService>().ImplementedBy<SalesmanManager>()
 
                 );
