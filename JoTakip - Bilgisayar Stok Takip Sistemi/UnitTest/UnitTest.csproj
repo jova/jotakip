@@ -59,6 +59,8 @@
     <Compile Include="DataAccessTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ProductTest.cs" />
+    <Compile Include="WasteProductTest.cs" />
+    <Compile Include="UserTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

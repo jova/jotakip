@@ -62,6 +62,7 @@
     <Compile Include="Concrete\LoginManager.cs" />
     <Compile Include="Concrete\PersonalManager.cs" />
     <Compile Include="Concrete\ProductManager.cs" />
+    <Compile Include="Concrete\ReportManager.cs" />
     <Compile Include="Concrete\UserManager.cs" />
     <Compile Include="Concrete\WarehouseManager.cs" />
     <Compile Include="Concrete\WasteProductManager.cs" />

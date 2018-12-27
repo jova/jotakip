@@ -28,5 +28,12 @@ namespace Business.Concrete
             return departmentDal.GetList();
         }
 
+        public void PromoteManager(int departmentId, int personalId)
+        {
+            Department department = departmentDal.Get(x => x.Id == departmentId);
+            department.ManagerId = personalId;
+
+            departmentDal.Update(department);
+        }
     }
 }

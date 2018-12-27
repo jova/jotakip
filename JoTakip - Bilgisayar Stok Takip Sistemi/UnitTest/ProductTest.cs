@@ -31,9 +31,7 @@ namespace UnitTest
             IProductService productService = IocUtil.Resolve<IProductService>();
             IWarehouseService warehouse = IocUtil.Resolve<IWarehouseService>();
 
-            Personal personal = new Personal() { Name = "Test", LastName = "Personal", StillEmployed = true };
-
-            //personalService.Add(personal);
+            Personal personal = personalService.Get(0);
 
             Product product = warehouse.GetProducts()[0];
 
@@ -42,6 +40,21 @@ namespace UnitTest
             product = warehouse.GetProducts()[0];
 
             Assert.AreEqual(personal.Id, product.AssignedById);
+        }
+
+        [TestMethod]
+        public void UnAssignProduct()
+        {
+            IProductService productService = IocUtil.Resolve<IProductService>();
+            IWarehouseService warehouse = IocUtil.Resolve<IWarehouseService>();
+
+            Product product = warehouse.GetProducts()[0];
+
+            productService.UnAssignProduct(product);
+
+            product = warehouse.GetProducts()[0];
+
+            Assert.AreEqual(0, product.AssignedById);
         }
     }
 }
