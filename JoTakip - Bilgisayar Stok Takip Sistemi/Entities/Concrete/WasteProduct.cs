@@ -6,7 +6,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Concrete
 {
-    public class WasteProduct : Product
+    public class WasteProduct
     {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public int AssignedById { get; set; }
+        public string Date { get; set; }
+        public string AssignedByDate { get; set; }
     }
 }
