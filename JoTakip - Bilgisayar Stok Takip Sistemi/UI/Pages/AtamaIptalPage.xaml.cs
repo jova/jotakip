@@ -2,30 +2,19 @@
 using Business.Abstract;
 using Entities.Concrete;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for PersonelSorgulamaPage.xaml
+    /// Interaction logic for OdaCikarmaPage.xaml
     /// </summary>
-    public partial class PersonelSorgulamaPage : BasePage<BaseViewModel>
+    public partial class AtamaIptalPage : BasePage<BaseViewModel>
     {
-        public PersonelSorgulamaPage()
+        public AtamaIptalPage()
         {
             InitializeComponent();
             fillComboBox();
@@ -51,25 +40,31 @@ namespace UI
             if (b.Name == "GeriBorder")
             {
                 await this.AnimateOut();
-                this.NavigationService.Navigate(new SorgulamalarPage());
+                this.NavigationService.Navigate(new PersonelIslemleriPage());
+            }
+            else
+            {
+                IProductService productService = IocUtil.Resolve<IProductService>();
+                Product product = UrunlerDataGrid.SelectedItem as Product;
+                productService.UnAssignProduct(product);
+                if (cbAtik.IsChecked == true)
+                {
+                    IWarehouseService warehouseService = IocUtil.Resolve<IWarehouseService>();
+                    IWasteProductService wasteProductService = IocUtil.Resolve<IWasteProductService>();
+                    wasteProductService.Add(product);
+                    warehouseService.DeleteProduct(product);
+                }
+                Personal personal = PersonellerDataGrid.SelectedItem as Personal;
+                fillUrunlerDataGrid(personal.Id);
             }
         }
 
         private void fillComboBox()
         {
             IDepartmentService departmentService = IocUtil.Resolve<IDepartmentService>();
-            if (Session.CurrentUser.UserType == Core.UserType.DepartmentManager)
-            {
-                DepartmanComboBox.ItemsSource = departmentService.GetList().Where(x => x.ManagerId == Session.CurrentUser.Id);
-                DepartmanComboBox.DisplayMemberPath = "Name";
-                DepartmanComboBox.SelectedValuePath = "Id";
-            }
-            else
-            {
-                DepartmanComboBox.ItemsSource = departmentService.GetList();
-                DepartmanComboBox.DisplayMemberPath = "Name";
-                DepartmanComboBox.SelectedValuePath = "Id";
-            }
+            DepartmanComboBox.ItemsSource = departmentService.GetList();
+            DepartmanComboBox.DisplayMemberPath = "Name";
+            DepartmanComboBox.SelectedValuePath = "Id";
         }
 
         private void DepartmanComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -96,6 +91,16 @@ namespace UI
             {
                 Personal personal = dataGrid.SelectedItem as Personal;
                 if (personal != null) fillUrunlerDataGrid(personal.Id);
+            }
+            if (UrunlerDataGrid.SelectedItems.Count > 0 && PersonellerDataGrid.SelectedItems.Count > 0)
+            {
+                AtamaIptalBorder.IsEnabled = true;
+                AtamaIptalBorder.Opacity = 1;
+            }
+            else
+            {
+                AtamaIptalBorder.IsEnabled = false;
+                AtamaIptalBorder.Opacity = 0.5;
             }
         }
     }

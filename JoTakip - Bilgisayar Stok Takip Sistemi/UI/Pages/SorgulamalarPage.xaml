@@ -51,6 +51,21 @@
                         </StackPanel>
                     </Border>
 
+                    <Border x:Name="AtikSorgulamaBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Height="64"
+                                   Width="64"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Stretch="Fill" 
+                                   Source="/Images/Logo/garbage.png"/>
+                            <Label Margin="0 2 0 0" 
+                                   Foreground="#e5e5e5" 
+                                   HorizontalAlignment="Center" 
+                                   Content="Atık Sorgulama" 
+                                   VerticalContentAlignment="Center"/>
+                        </StackPanel>
+                    </Border>
+                    
                     <Border x:Name="GeriBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="140" Width="140" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
                             <Image Height="64"

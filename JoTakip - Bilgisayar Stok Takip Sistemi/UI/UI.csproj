@@ -39,6 +39,12 @@
     <ApplicationIcon>Images\logo-normal.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="DoddleReport, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DoddleReport.1.5.2.0\lib\net40\DoddleReport.dll</HintPath>
+    </Reference>
+    <Reference Include="DoddleReport.iTextSharp, Version=1.5.2.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\DoddleReport.iTextSharp.1.5.2.0\lib\net40\DoddleReport.iTextSharp.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -82,27 +88,30 @@
     <Compile Include="Animation\PageAnimation.cs" />
     <Compile Include="Animation\PageAnimations.cs" />
     <Compile Include="Animation\StoryboardHelpers.cs" />
+    <Compile Include="Pages\AtikSorgulamaPage.xaml.cs">
+      <DependentUpon>AtikSorgulamaPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BasePage.cs" />
     <Compile Include="Pages\DepartmanIslemleriPage.xaml.cs">
       <DependentUpon>DepartmanIslemleriPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DemirbasCikarmaPage.xaml.cs">
-      <DependentUpon>DemirbasCikarmaPage.xaml</DependentUpon>
+    <Compile Include="Pages\UrunSilPage.xaml.cs">
+      <DependentUpon>UrunSilPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\DemirbasEklemePage.xaml.cs">
-      <DependentUpon>DemirbasEklemePage.xaml</DependentUpon>
+    <Compile Include="Pages\SatinAlPage.xaml.cs">
+      <DependentUpon>SatinAlPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OdaCikarmaPage.xaml.cs">
-      <DependentUpon>OdaCikarmaPage.xaml</DependentUpon>
+    <Compile Include="Pages\AtamaIptalPage.xaml.cs">
+      <DependentUpon>AtamaIptalPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OdadanCikarmaPage.xaml.cs">
-      <DependentUpon>OdadanCikarmaPage.xaml</DependentUpon>
+    <Compile Include="Pages\DepartmanlarPage.xaml.cs">
+      <DependentUpon>DepartmanlarPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OdaEklemePage.xaml.cs">
-      <DependentUpon>OdaEklemePage.xaml</DependentUpon>
+    <Compile Include="Pages\UrunAtaPage.xaml.cs">
+      <DependentUpon>UrunAtaPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OdaGuncellemePage.xaml.cs">
-      <DependentUpon>OdaGuncellemePage.xaml</DependentUpon>
+    <Compile Include="Pages\PersonelEklePage.xaml.cs">
+      <DependentUpon>PersonelEklePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PersonelIslemleriPage.xaml.cs">
       <DependentUpon>PersonelIslemleriPage.xaml</DependentUpon>
@@ -110,8 +119,8 @@
     <Compile Include="Pages\MainMenuPage.xaml.cs">
       <DependentUpon>MainMenuPage.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Pages\OdayaEklemePage.xaml.cs">
-      <DependentUpon>OdayaEklemePage.xaml</DependentUpon>
+    <Compile Include="Pages\YoneticiAtaPage.xaml.cs">
+      <DependentUpon>YoneticiAtaPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Pages\PersonelSorgulamaPage.xaml.cs">
       <DependentUpon>PersonelSorgulamaPage.xaml</DependentUpon>
@@ -151,31 +160,35 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Pages\AtikSorgulamaPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Pages\DepartmanIslemleriPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\DemirbasCikarmaPage.xaml">
+    <Page Include="Pages\UrunSilPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\DemirbasEklemePage.xaml">
+    <Page Include="Pages\SatinAlPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\OdaCikarmaPage.xaml">
+    <Page Include="Pages\AtamaIptalPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\OdadanCikarmaPage.xaml">
+    <Page Include="Pages\DepartmanlarPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\OdaEklemePage.xaml">
+    <Page Include="Pages\UrunAtaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\OdaGuncellemePage.xaml">
+    <Page Include="Pages\PersonelEklePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -191,7 +204,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Pages\OdayaEklemePage.xaml">
+    <Page Include="Pages\YoneticiAtaPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

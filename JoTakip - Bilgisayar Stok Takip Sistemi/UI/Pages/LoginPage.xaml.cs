@@ -16,7 +16,7 @@ namespace UI
         public LoginPage()
         {
             InitializeComponent();
-            /*User user = new User { Username = "enes", Password = "1234", Name = "Enes", LastName = "ÇELİK", Gender = Gender.Male ,UserType = UserType.BuyerManager, DepartmentId = 0, StillEmployed = true };
+            /*User user = new User { Username = "ersoy", Password = "1234", Name = "Ersoy", LastName = "TORAMAN", Gender = Gender.Male ,UserType = UserType.Admin, DepartmentId = 1, StillEmployed = true };
             IUserService userService = IocUtil.Resolve<IUserService>();
             userService.Add(user);*/
         }

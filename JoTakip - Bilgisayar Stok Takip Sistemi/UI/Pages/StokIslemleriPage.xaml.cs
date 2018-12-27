@@ -52,10 +52,10 @@ namespace UI
             switch (b.Name)
             {
                 case "SatinAlBorder":
-                    this.NavigationService.Navigate(new DemirbasEklemePage());
+                    this.NavigationService.Navigate(new SatinAlPage());
                     return;
                 case "UrunSilBorder":
-                    this.NavigationService.Navigate(new DemirbasCikarmaPage());
+                    this.NavigationService.Navigate(new UrunSilPage());
                     return;
                 case "GeriBorder":
                     this.NavigationService.Navigate(new MainMenuPage());

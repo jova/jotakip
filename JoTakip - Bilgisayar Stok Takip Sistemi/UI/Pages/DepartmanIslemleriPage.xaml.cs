@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using Business;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UI
 {
@@ -23,6 +13,11 @@ namespace UI
         public DepartmanIslemleriPage()
         {
             InitializeComponent();
+            if (Session.CurrentUser.UserType != Core.UserType.Admin)
+            {
+                YoneticiAtaBorder.IsEnabled = false;
+                YoneticiAtaBorder.Opacity = 0.5;
+            }
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
@@ -46,11 +41,11 @@ namespace UI
             {
                 case "YoneticiAtaBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new OdayaEklemePage());
+                    this.NavigationService.Navigate(new YoneticiAtaPage());
                     return;
                 case "DepartmanlarBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new OdadanCikarmaPage());
+                    this.NavigationService.Navigate(new DepartmanlarPage());
                     return;
                 case "GeriBorder":
                     await this.AnimateOut();

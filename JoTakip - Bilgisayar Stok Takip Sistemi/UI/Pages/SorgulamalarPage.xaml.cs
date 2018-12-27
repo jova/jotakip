@@ -1,17 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using Business;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UI
 {
@@ -23,6 +13,20 @@ namespace UI
         public SorgulamalarPage()
         {
             InitializeComponent();
+            if (Session.CurrentUser.UserType == Core.UserType.BuyerManager)
+            {
+                AtikSorgulamaBorder.IsEnabled = false;
+                AtikSorgulamaBorder.Opacity = 0.5;
+                PersonelSorgulamaBorder.IsEnabled = false;
+                PersonelSorgulamaBorder.Opacity = 0.5;
+            }
+            else if (Session.CurrentUser.UserType == Core.UserType.DepartmentManager)
+            {
+                AtikSorgulamaBorder.IsEnabled = false;
+                AtikSorgulamaBorder.Opacity = 0.5;
+                StokSorgulamaBorder.IsEnabled = false;
+                StokSorgulamaBorder.Opacity = 0.5;
+            }
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
@@ -50,6 +54,9 @@ namespace UI
                     return;
                 case "StokSorgulamaBorder":
                     this.NavigationService.Navigate(new StokSorgulamaPage());
+                    return;
+                case "AtikSorgulamaBorder":
+                    this.NavigationService.Navigate(new AtikSorgulamaPage());
                     return;
                 case "GeriBorder":
                     this.NavigationService.Navigate(new MainMenuPage());

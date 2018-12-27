@@ -5,18 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Microsoft.Win32;
-using WinForms = System.Windows.Forms; 
-using System.IO;
-using System.Diagnostics;
-using Business.Abstract;
 using Business;
 
 namespace UI
@@ -29,10 +19,28 @@ namespace UI
         public MainMenuPage()
         {
             InitializeComponent();
-            //NameText.Text += Session.CurrentUser.Name + " " + Session.CurrentUser.LastName;
-            //YetkiText.Text += Session.CurrentUser.UserType == Core.UserType.Admin ? "Yönetici" : "Satış Elemanı";
-            //if (Session.CurrentUser.Gender == Core.Gender.Male) ImgFemaleUser.Visibility = Visibility.Hidden;
-            //else ImgMaleUser.Visibility = Visibility.Hidden;
+            NameText.Text += Session.CurrentUser.Name + " " + Session.CurrentUser.LastName;
+            if (Session.CurrentUser.UserType == Core.UserType.Admin) YetkiText.Text += "Yönetici";
+            else if (Session.CurrentUser.UserType == Core.UserType.BuyerManager) YetkiText.Text += "Satış Elemanı";
+            else if (Session.CurrentUser.UserType == Core.UserType.DepartmentManager) YetkiText.Text += "Departman Yöneticisi";
+            if (Session.CurrentUser.Gender == Core.Gender.Male) ImgFemaleUser.Visibility = Visibility.Hidden;
+            else ImgMaleUser.Visibility = Visibility.Hidden;
+            if (Session.CurrentUser.UserType == Core.UserType.BuyerManager)
+            {
+                DepartmanIslemleriBorder.IsEnabled = false;
+                DepartmanIslemleriBorder.Opacity = 0.5;
+                RaporlarBorder.IsEnabled = false;
+                RaporlarBorder.Opacity = 0.5;
+            }
+            else if (Session.CurrentUser.UserType== Core.UserType.DepartmentManager)
+            {
+                StokIslemleriBorder.IsEnabled = false;
+                StokIslemleriBorder.Opacity = 0.5;
+                PersonelIslemleriBorder.IsEnabled = false;
+                PersonelIslemleriBorder.Opacity = 0.5;
+                RaporlarBorder.IsEnabled = false;
+                RaporlarBorder.Opacity = 0.5;
+            }
         }
 
         // Mouse Enter
@@ -76,16 +84,6 @@ namespace UI
                     await this.AnimateOut();
                     this.NavigationService.Navigate(new RaporlarPage());
                     return;
-                //WinForms.FolderBrowserDialog folderDialog = new WinForms.FolderBrowserDialog();
-                //folderDialog.ShowNewFolderButton = false;
-                //folderDialog.SelectedPath = System.AppDomain.CurrentDomain.BaseDirectory;
-                //WinForms.DialogResult result = folderDialog.ShowDialog();
-                //if (result == WinForms.DialogResult.OK)
-                //{
-                //    String sPath = folderDialog.SelectedPath;
-                //    Sistem.RaporOlustur(sPath);
-                //}
-                //return;
                 default:
                     break;
             }

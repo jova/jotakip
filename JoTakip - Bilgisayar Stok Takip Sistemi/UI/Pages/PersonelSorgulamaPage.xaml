@@ -6,11 +6,10 @@
       xmlns:local="clr-namespace:UI"
       mc:Ignorable="d" 
       d:DesignHeight="700" d:DesignWidth="800"
-      Title="PersonelSorgulamaPage">
+      Title="Personel Sorgulama">
 
     <Border>
-        <Border 
-                CornerRadius="10"
+        <Border CornerRadius="10"
                 Margin="15 15 15 15"
                 Width="750"
                 Height="500">
@@ -22,20 +21,13 @@
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="0" Grid.Column="0" Margin="5 5 5 5" Background="#999999" CornerRadius="10">
+                <Border Grid.Row="0" Grid.Column="0" Margin="5 5 5 5" Background="#6E6E6E" CornerRadius="10">
                     <DockPanel Margin="15 5 15 5">
                         <TextBlock Text="Personel Sorgulama" FontSize="35" Foreground="#e5e5e5" VerticalAlignment="Center"/>
                     </DockPanel>
                 </Border>
 
                 <StackPanel Grid.Row="1">
-
-                    <Border Margin="5 5 5 5" Background="#999999" CornerRadius="10" Height="40">
-                        <DockPanel Margin="15 5 15 5">
-                            <TextBlock Text="Personel: " Foreground="#e5e5e5" VerticalAlignment="Center"/>
-                            <ComboBox x:Name="PersonelComboBox" SelectionChanged="PersonelComboBox_SelectionChanged"/>
-                        </DockPanel>
-                    </Border>
 
                     <Grid>
 
@@ -44,35 +36,74 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5 5 5 5">
-                            <TextBlock Text="ODALAR" Margin="0 0 0 5" Foreground="#999999"/>
-                            <DataGrid x:Name="OdaDataGrid" SelectionChanged="OdaDataGrid_SelectionChanged" AutoGenerateColumns="False" IsReadOnly="True" VerticalScrollBarVisibility="Auto" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Height="190">
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5 5 5 5">
+
+                            <TextBlock Text="Ürünler" Margin="0 0 0 5" Foreground="#6E6E6E"/>
+
+                            <DataGrid x:Name="UrunlerDataGrid" 
+                                      AutoGenerateColumns="False" 
+                                      IsReadOnly="True" 
+                                      SelectionChanged="SelectionChanged"
+                                      VerticalScrollBarVisibility="Auto" 
+                                      SelectionMode="Single" 
+                                      CanUserAddRows="False" 
+                                      CanUserDeleteRows="False" 
+                                      CanUserResizeColumns="False" 
+                                      CanUserResizeRows="False"
+                                      BorderThickness="0"
+                                      Height="225">
+
                                 <DataGrid.Resources>
                                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                                        <Setter Property="Background" Value="#999999"/>
+                                        <Setter Property="Background" Value="#6E6E6E"/>
                                         <Setter Property="Foreground" Value="#e5e5e5"/>
                                         <Setter Property="BorderThickness" Value="0,0,1,2"/>
                                         <Setter Property="BorderBrush" Value="#e5e5e5"/>
                                     </Style>
                                 </DataGrid.Resources>
-                                
+
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header=" ID" Binding="{Binding odaID}" Width="80" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header=" Ad" Binding="{Binding odaAdi}" Width="80" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header=" Sorumlu" Binding="{Binding AdSoyad}" Width="180" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header=" ID" Binding="{Binding Id}" Width="50" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header=" Ad" Binding="{Binding Name}" Width="80" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header=" Tarih" Binding="{Binding Date}" Width="200" IsReadOnly="True"/>
                                 </DataGrid.Columns>
-                            
+
                             </DataGrid>
+
                         </StackPanel>
 
-                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5 5 5 5">
-                            <TextBlock Text="DEMİRBAŞLAR" Margin="0 0 0 5" Foreground="#999999"/>
+                        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5 5 5 5">
 
-                            <DataGrid  x:Name="DemirbasDataGrid" IsReadOnly="True" VerticalScrollBarVisibility="Auto" AutoGenerateColumns="False" SelectionMode="Single" CanUserAddRows="False" CanUserDeleteRows="False" CanUserResizeColumns="False" CanUserResizeRows="False" Height="190">
-                                
+                            <Border Margin="0 5 0 5" Background="#6E6E6E" CornerRadius="10" Height="40">
+
+                                <DockPanel Margin="15 5 15 5">
+                                    <TextBlock Text="Departman: " 
+                                               Foreground="#e5e5e5" 
+                                               VerticalAlignment="Center"/>
+                                    <ComboBox x:Name="DepartmanComboBox" 
+                                              SelectionChanged="DepartmanComboBox_SelectionChanged"/>
+                                </DockPanel>
+
+                            </Border>
+
+                            <TextBlock Text="Personeller" Margin="0 0 0 5" Foreground="#6E6E6E"/>
+
+                            <DataGrid  x:Name="PersonellerDataGrid" 
+                                       IsReadOnly="True" 
+                                       SelectionChanged="SelectionChanged"
+                                       VerticalScrollBarVisibility="Auto" 
+                                       AutoGenerateColumns="False" 
+                                       SelectionMode="Single" 
+                                       CanUserAddRows="False" 
+                                       CanUserDeleteRows="False"
+                                       BorderThickness="0"
+                                       CanUserResizeColumns="False" 
+                                       CanUserResizeRows="False" 
+                                       Height="175">
+
                                 <DataGrid.Resources>
                                     <Style TargetType="{x:Type DataGridColumnHeader}">
-                                        <Setter Property="Background" Value="#999999"/>
+                                        <Setter Property="Background" Value="#6E6E6E"/>
                                         <Setter Property="Foreground" Value="#e5e5e5"/>
                                         <Setter Property="BorderThickness" Value="0,0,1,2"/>
                                         <Setter Property="BorderBrush" Value="#e5e5e5"/>
@@ -80,14 +111,12 @@
                                 </DataGrid.Resources>
 
                                 <DataGrid.Columns>
-                                    <DataGridTextColumn Header=" Kod" Binding="{Binding Kod}" Width="90" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header=" Ad" Binding="{Binding demirbasAdi}" Width="90" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header=" Kategori" Binding="{Binding demirbasTurAdi}" Width="90" IsReadOnly="True"/>
-                                    <DataGridTextColumn Header=" Adet" Binding="{Binding adet}" Width="80" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header=" Ad" Binding="{Binding Name}" Width="90" IsReadOnly="True"/>
+                                    <DataGridTextColumn Header=" Soyad" Binding="{Binding LastName}" Width="255" IsReadOnly="True"/>
                                 </DataGrid.Columns>
-                            
+
                             </DataGrid>
-                        
+
                         </StackPanel>
 
                     </Grid>
@@ -96,11 +125,17 @@
 
 
                 <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Top" HorizontalAlignment="Right">
-                    <Border x:Name="GeriBorder" Margin="5 5 5 5" Background="#999999" Height="80" Width="80" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
+
+                    <Border x:Name="GeriBorder" Margin="5 5 5 5" Background="#6E6E6E" Height="80" Width="80" CornerRadius="10" MouseEnter="Border_MouseEnter" MouseLeave="Border_MouseLeave" MouseDown="Border_MouseDownAsync">
                         <StackPanel VerticalAlignment="Center">
-                            <Image  Stretch="None" Source="/Demirbas Takip Sistemi;component/Images/Logo/back.png"/>
+                            <Image Width="64"
+                                   Height="64"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Stretch="Fill" 
+                                   Source="/Images/Logo/back.png"/>
                         </StackPanel>
                     </Border>
+
                 </StackPanel>
 
             </Grid>

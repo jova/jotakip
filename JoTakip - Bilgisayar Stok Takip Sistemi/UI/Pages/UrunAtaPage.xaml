@@ -1,15 +1,16 @@
-﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.RaporlarPage"
+﻿<local:BasePage x:TypeArguments="local:BaseViewModel"  x:Class="UI.UrunAtaPage"
       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:UI"
       mc:Ignorable="d" 
-      d:DesignHeight="700" d:DesignWidth="800"
-      Title="Raporlar">
+      d:DesignHeight="500" d:DesignWidth="800"
+      Title="Ürün Ata">
 
     <Border>
-        <Border CornerRadius="10"
+        <Border 
+                CornerRadius="10"
                 Margin="15 15 15 15"
                 Width="750"
                 Height="500">
@@ -23,7 +24,7 @@
 
                 <Border Grid.Row="0" Grid.Column="0" Margin="5 5 5 5" Background="#6E6E6E" CornerRadius="10">
                     <DockPanel Margin="15 5 15 5">
-                        <TextBlock Text="Raporlar" FontSize="35" Foreground="#e5e5e5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Ürün Ata" FontSize="35" Foreground="#e5e5e5" VerticalAlignment="Center"/>
                     </DockPanel>
                 </Border>
 
@@ -36,10 +37,10 @@
                             <ColumnDefinition Width="*"/>
                         </Grid.ColumnDefinitions>
 
-                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5 5 5 5">
+                        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5 5 5 5">
 
                             <TextBlock Text="Ürünler" Margin="0 0 0 5" Foreground="#6E6E6E"/>
-
+                            
                             <DataGrid x:Name="UrunlerDataGrid" 
                                       AutoGenerateColumns="False" 
                                       IsReadOnly="True" 
@@ -51,8 +52,8 @@
                                       CanUserResizeColumns="False" 
                                       CanUserResizeRows="False"
                                       BorderThickness="0"
-                                      Height="185">
-
+                                      Height="225">
+                                
                                 <DataGrid.Resources>
                                     <Style TargetType="{x:Type DataGridColumnHeader}">
                                         <Setter Property="Background" Value="#6E6E6E"/>
@@ -69,27 +70,13 @@
                                 </DataGrid.Columns>
 
                             </DataGrid>
-
-                            <Border x:Name="UrunDokumAlBorder" 
-                                    Background="#6E6E6E" 
-                                    Margin="0 10 0 0"
-                                    CornerRadius="3" 
-                                    MouseEnter="Border_MouseEnter" 
-                                    MouseLeave="Border_MouseLeave" 
-                                    MouseDown="Border_MouseDownAsync">
-                                <Label Foreground="#e5e5e5" 
-                                       HorizontalAlignment="Center" 
-                                       Content="Ürün Dökümü Al"
-                                       FontSize="14"
-                                       VerticalContentAlignment="Center"/>
-                            </Border>
-
+                            
                         </StackPanel>
 
-                        <StackPanel Grid.Column="0" Orientation="Vertical" Margin="5 5 5 5">
+                        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="5 5 5 5">
 
                             <Border Margin="0 5 0 5" Background="#6E6E6E" CornerRadius="10" Height="40">
-
+                                
                                 <DockPanel Margin="15 5 15 5">
                                     <TextBlock Text="Departman: " 
                                                Foreground="#e5e5e5" 
@@ -97,7 +84,7 @@
                                     <ComboBox x:Name="DepartmanComboBox" 
                                               SelectionChanged="DepartmanComboBox_SelectionChanged"/>
                                 </DockPanel>
-
+                                
                             </Border>
 
                             <TextBlock Text="Personeller" Margin="0 0 0 5" Foreground="#6E6E6E"/>
@@ -113,7 +100,7 @@
                                        BorderThickness="0"
                                        CanUserResizeColumns="False" 
                                        CanUserResizeRows="False" 
-                                       Height="135">
+                                       Height="175">
 
                                 <DataGrid.Resources>
                                     <Style TargetType="{x:Type DataGridColumnHeader}">
@@ -131,20 +118,6 @@
 
                             </DataGrid>
 
-                            <Border x:Name="PersonelDokumAlBorder" 
-                                    Background="#6E6E6E" 
-                                    Margin="0 10 0 0"
-                                    CornerRadius="3" 
-                                    MouseEnter="Border_MouseEnter" 
-                                    MouseLeave="Border_MouseLeave" 
-                                    MouseDown="Border_MouseDownAsync">
-                                <Label Foreground="#e5e5e5" 
-                                       HorizontalAlignment="Center" 
-                                       Content="Personel Dökümü Al"
-                                       FontSize="14"
-                                       VerticalContentAlignment="Center"/>
-                            </Border>
-
                         </StackPanel>
 
                     </Grid>
@@ -161,6 +134,26 @@
                                    RenderOptions.BitmapScalingMode="HighQuality"
                                    Stretch="Fill" 
                                    Source="/Images/Logo/back.png"/>
+                        </StackPanel>
+                    </Border>
+
+                    <Border x:Name="UrunAtaBorder" 
+                            Margin="5 5 5 5"
+                            Opacity="0.5"
+                            IsEnabled="False"
+                            Background="#6E6E6E" 
+                            Height="80" 
+                            Width="80" 
+                            CornerRadius="10" 
+                            MouseEnter="Border_MouseEnter" 
+                            MouseLeave="Border_MouseLeave" 
+                            MouseDown="Border_MouseDownAsync">
+                        <StackPanel VerticalAlignment="Center">
+                            <Image Width="64"
+                                   Height="64"
+                                   RenderOptions.BitmapScalingMode="HighQuality"
+                                   Stretch="Fill" 
+                                   Source="/Images/Logo/assign.png"/>
                         </StackPanel>
                     </Border>
 

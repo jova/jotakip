@@ -1,30 +1,19 @@
 ﻿using Business;
 using Business.Abstract;
-using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UI
 {
     /// <summary>
-    /// Interaction logic for StokSorgulamaPage.xaml
+    /// Interaction logic for AtikSorgulamaPage.xaml
     /// </summary>
-    public partial class StokSorgulamaPage : BasePage<BaseViewModel>
+    public partial class AtikSorgulamaPage : BasePage<BaseViewModel>
     {
-        public StokSorgulamaPage()
+        public AtikSorgulamaPage()
         {
             InitializeComponent();
             fillDataGrid();
@@ -56,8 +45,8 @@ namespace UI
 
         private void fillDataGrid()
         {
-            IWarehouseService warehouseService = IocUtil.Resolve<IWarehouseService>();
-            UrunlerDataGrid.ItemsSource = warehouseService.GetProducts();
+            IWasteProductService wasteProductService = IocUtil.Resolve<IWasteProductService>();
+            UrunlerDataGrid.ItemsSource = wasteProductService.GetList();
         }
 
         private void FiltreText_TextChanged(object sender, TextChangedEventArgs e)
@@ -70,7 +59,6 @@ namespace UI
                 UrunlerDataGrid.ItemsSource = warehouseService.GetProducts();
                 return;
             }
-            if (kriter == "ID") UrunlerDataGrid.ItemsSource = warehouseService.GetProducts().Where(x => x.Id.ToString() == kelimeara);
             else if (kriter == "Ad") UrunlerDataGrid.ItemsSource = warehouseService.GetProducts().Where(x => x.Name.ToLower().Contains(kelimeara));
             else if (kriter == "Tarih") UrunlerDataGrid.ItemsSource = warehouseService.GetProducts().Where(x => x.Date.Contains(kelimeara));
         }

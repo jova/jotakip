@@ -1,17 +1,13 @@
-﻿using System;
+﻿using Business;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace UI
 {
@@ -23,6 +19,11 @@ namespace UI
         public PersonelIslemleriPage()
         {
             InitializeComponent();
+            if (Session.CurrentUser.UserType != Core.UserType.Admin)
+            {
+                PersonelEkleBorder.IsEnabled = false;
+                PersonelEkleBorder.Opacity = 0.5;
+            }
         }
 
         private void Border_MouseEnter(object sender, MouseEventArgs e)
@@ -44,17 +45,17 @@ namespace UI
             Border b = sender as Border;
             switch (b.Name)
             {
-                case "OdaEklemeBorder":
+                case "UrunAtaBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new OdaEklemePage());
+                    this.NavigationService.Navigate(new UrunAtaPage());
                     return;
-                case "OdaCikarmaBorder":
+                case "AtamaIptalBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new OdaCikarmaPage());
+                    this.NavigationService.Navigate(new AtamaIptalPage());
                     return;
-                case "OdaGuncellemeBorder":
+                case "PersonelEkleBorder":
                     await this.AnimateOut();
-                    this.NavigationService.Navigate(new OdaGuncellemePage());
+                    this.NavigationService.Navigate(new PersonelEklePage());
                     return;
                 case "GeriBorder":
                     await this.AnimateOut();
