@@ -11,5 +11,6 @@ namespace Business.Abstract
     {
         void AssignProduct(Personal personal, Product product);
         void BuyProduct(Product product, int count);
+        void UnAssignProduct(Product product);
     }
 }

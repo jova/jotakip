@@ -33,5 +33,11 @@ namespace Business.Concrete
 
             warehouse.AddProducts(products);
         }
+
+        public void UnAssignProduct(Product product)
+        {
+            product.AssignedById = 0;
+            productDal.Update(product);
+        }
     }
 }
