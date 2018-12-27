@@ -21,7 +21,6 @@ namespace Business.Concrete
         public void Add(Product product)
         {
             WasteProduct wasteProduct = new WasteProduct { Name = product.Name, Date = DateTime.Now.ToString("dd/MM/yyyy"), AssignedByDate = product.AssignedByDate, AssignedById = product.AssignedById, Id = product.Id };
-
             wasteProductDal.Add(wasteProduct);
         }
 

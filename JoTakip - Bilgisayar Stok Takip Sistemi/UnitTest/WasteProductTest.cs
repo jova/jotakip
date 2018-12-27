@@ -20,7 +20,7 @@ namespace UnitTest
             WasteProduct wasteProduct = new WasteProduct { Name = product.Name, Date = product.Date, AssignedByDate = product.AssignedByDate, AssignedById = product.AssignedById };
 
             warehouseService.DeleteProduct(product);
-            wasteProductService.Add(wasteProduct);
+            wasteProductService.Add(product);
 
             Assert.AreEqual(1, wasteProductService.GetList().Count);
         }
