@@ -40,10 +40,5 @@ namespace Business.Concrete
             IWarehouseService warehouse = new WarehouseManager(productDal);
             warehouse.AddProduct(product);
         }
-
-        public void WasteProduct(Product product)
-        {
-            productDal.Delete(product);
-        }
     }
 }

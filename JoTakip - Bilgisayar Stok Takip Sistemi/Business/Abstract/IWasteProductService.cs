@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace Business.Abstract
 {
-    public interface IProductService
+    public interface IWasteProductService
     {
-        void AssignProduct(Personal personal, Product product);
-        void BuyProduct(Product product);
+        void Add(WasteProduct product);
+        List<WasteProduct> GetList();
     }
 }
