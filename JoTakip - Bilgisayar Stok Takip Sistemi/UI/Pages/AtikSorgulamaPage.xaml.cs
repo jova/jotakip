@@ -59,6 +59,7 @@ namespace UI
                 UrunlerDataGrid.ItemsSource = warehouseService.GetProducts();
                 return;
             }
+            if (kriter == "ID") UrunlerDataGrid.ItemsSource = warehouseService.GetProducts().Where(x => x.Id.ToString() == kelimeara);
             else if (kriter == "Ad") UrunlerDataGrid.ItemsSource = warehouseService.GetProducts().Where(x => x.Name.ToLower().Contains(kelimeara));
             else if (kriter == "Tarih") UrunlerDataGrid.ItemsSource = warehouseService.GetProducts().Where(x => x.Date.Contains(kelimeara));
         }

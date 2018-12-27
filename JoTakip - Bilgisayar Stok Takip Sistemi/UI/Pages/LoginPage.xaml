@@ -8,14 +8,16 @@
       d:DesignHeight="400" d:DesignWidth="400"
       Title="LoginPage">
 
-    <Border>
-        <Grid>
+    <Border KeyboardNavigation.IsTabStop="False">
+        <Grid KeyboardNavigation.IsTabStop="False">
             <!--Main content-->
             <StackPanel VerticalAlignment="Center" 
+                        KeyboardNavigation.IsTabStop="False"
                         HorizontalAlignment="Center" 
                         TextBlock.TextAlignment="Center">
 
                 <Border Background="#6E6E6E" 
+                        KeyboardNavigation.IsTabStop="False"
                         CornerRadius="10"
                         Padding="15 15 15 15"
                         Width="200"
@@ -24,16 +26,16 @@
                     <StackPanel>
 
                         <!--Giriş Yap-->
-                        <TextBlock Text="Giriş Yap" FontSize="30" Foreground="#e5e5e5" Margin="0 0 0 5"/>
+                        <TextBlock Text="Giriş Yap" KeyboardNavigation.IsTabStop="False" FontSize="30" Foreground="#e5e5e5" Margin="0 0 0 5"/>
 
                         <!--Kullanıcı adı-->
-                        <TextBox x:Name="UsernameText" MaxLength="20" Tag="Kullanıcı adı" CaretBrush="#e5e5e5" Background="#6E6E6E" Margin="18 0 18 0"/>
+                        <TextBox x:Name="UsernameText" TabIndex="0" IsTabStop="True" MaxLength="20" Tag="Kullanıcı adı" CaretBrush="#e5e5e5" Background="#6E6E6E" Margin="18 0 18 0"/>
 
                         <!--Parola-->
                         <PasswordBox x:Name="PasswordText" MaxLength="20" Tag="Parola" CaretBrush="#e5e5e5" Background="#6E6E6E" Margin="18 0 18 0"/>
 
                         <!--İleri-->
-                        <Button Content="İleri" Click="Button_ClickAsync" HorizontalAlignment="Center"/>
+                        <Button Content="İleri" IsDefault="True" Click="Button_ClickAsync" HorizontalAlignment="Center"/>
 
                         <TextBlock x:Name="ErrorText" Visibility="Hidden" Text="Geçersiz kullanıcı adı/parola" FontSize="10" Foreground="#e5e5e5" Margin="0 0 0 5"/>
 

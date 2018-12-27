@@ -24,7 +24,7 @@
 
                 <Border Grid.Row="0" Grid.Column="0" Margin="5 5 5 5" Background="#6E6E6E" CornerRadius="10">
                     <DockPanel Margin="15 5 15 5">
-                        <TextBlock Text="Personel Ekle" FontSize="35" Foreground="#e5e5e5" VerticalAlignment="Center"/>
+                        <TextBlock Text="Satış Personeli Ekle" FontSize="35" Foreground="#e5e5e5" VerticalAlignment="Center"/>
                     </DockPanel>
                 </Border>
 

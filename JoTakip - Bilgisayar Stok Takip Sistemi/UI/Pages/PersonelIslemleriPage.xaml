@@ -61,7 +61,7 @@
                             <Label Margin="0 2 0 0"
                                    Foreground="#e5e5e5" 
                                    HorizontalAlignment="Center" 
-                                   Content="Personel Ekle" 
+                                   Content="Satış Personel Ekle" 
                                    VerticalContentAlignment="Center"/>
                         </StackPanel>
                     </Border>
