@@ -19,19 +19,19 @@ namespace Business.Concrete
 
         public void AssignProduct(Personal personal, Product product)
         {
-            IWarehouseService warehouse = new WarehouseManager(productDal);
-            warehouse.GetProducts().Single(x => x.Id == product.Id).Count -= 1;
-
             product.AssignedById = personal.Id;
             productDal.Update(product);
-
-            if (warehouse.GetProducts().Single(x => x.Id == product.Id).Count == 0) productDal.Delete(product);
         }
 
-        public void BuyProduct(Product product)
+        public void BuyProduct(Product product, int count)
         {
             IWarehouseService warehouse = new WarehouseManager(productDal);
-            warehouse.AddProduct(product);
+
+            List<Product> products = new List<Product>();
+
+            for (int i = 0; i < count; i++) products.Add(product);
+
+            warehouse.AddProducts(products);
         }
     }
 }

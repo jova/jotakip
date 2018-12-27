@@ -17,9 +17,9 @@ namespace UnitTest
             IProductService productService = IocUtil.Resolve<IProductService>();
             IWarehouseService warehouse = IocUtil.Resolve<IWarehouseService>();
 
-            Product product = new Product() { Name = "buy product test", Count = 5 };
+            Product product = new Product() { Name = "buy product test" };
 
-            productService.BuyProduct(product);
+            productService.BuyProduct(product, 5);
 
             Assert.AreEqual(5, warehouse.GetProducts().Count(x => x.Name == product.Name));
         }

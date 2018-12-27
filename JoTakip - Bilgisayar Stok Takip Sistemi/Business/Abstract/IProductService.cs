@@ -10,6 +10,6 @@ namespace Business.Abstract
     public interface IProductService
     {
         void AssignProduct(Personal personal, Product product);
-        void BuyProduct(Product product);
+        void BuyProduct(Product product, int count);
     }
 }
