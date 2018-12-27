@@ -38,6 +38,7 @@
                         <Button Content="İleri" IsDefault="True" Click="Button_ClickAsync" HorizontalAlignment="Center"/>
 
                         <TextBlock x:Name="ErrorText" Visibility="Hidden" Text="Geçersiz kullanıcı adı/parola" FontSize="10" Foreground="#e5e5e5" Margin="0 0 0 5"/>
+                        <TextBlock Visibility="Visible" Text="Kullanıcı Adı: admin | Şifre: admin" FontSize="10" Foreground="#e5e5e5" Margin="0 0 0 5"/>
 
                     </StackPanel>
 

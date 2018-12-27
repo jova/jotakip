@@ -48,7 +48,7 @@ namespace UI
                     IUserService userService = IocUtil.Resolve<IUserService>();
                     User user = new User { Name = NameText.Text,
                         LastName = LastNameText.Text,
-                        Gender = (GenderComboBox.SelectedItem.ToString() == "Erkek" ? Core.Gender.Male : Core.Gender.Female),
+                        Gender = (GenderComboBox.SelectedIndex == 0 ? Core.Gender.Male : Core.Gender.Female),
                         Username = UserNameText.Text,
                         Password = PasswordText.Text,
                         DepartmentId = 2,
