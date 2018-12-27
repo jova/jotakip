@@ -18,9 +18,11 @@ namespace Business.Concrete
             this.wasteProductDal = wasteProductDal;
         }
 
-        public void Add(WasteProduct product)
+        public void Add(Product product)
         {
-            wasteProductDal.Add(product);
+            WasteProduct wasteProduct = new WasteProduct { Name = product.Name, Date = product.Date, AssignedByDate = product.AssignedByDate, AssignedById = product.AssignedById };
+
+            wasteProductDal.Add(wasteProduct);
         }
 
         public List<WasteProduct> GetList()

@@ -9,7 +9,7 @@ namespace Business.Abstract
 {
     public interface IWasteProductService
     {
-        void Add(WasteProduct product);
+        void Add(Product product);
         List<WasteProduct> GetList();
     }
 }
