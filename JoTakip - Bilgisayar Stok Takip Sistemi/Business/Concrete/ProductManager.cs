@@ -22,17 +22,10 @@ namespace Business.Concrete
             IWarehouseService warehouse = new WarehouseManager(productDal);
             warehouse.GetProducts().Single(x => x.Id == product.Id).Count -= 1;
 
-            product.Count = 1;
+            product.AssignedById = personal.Id;
+            productDal.Update(product);
 
-            if (warehouse.GetProducts().Single(x => x.Id == product.Id).Count > 0)
-            {
-                product.AssignedById = personal.Id;
-                productDal.Update(product);
-            }
-            else
-            {
-                productDal.Delete(product);
-            }
+            if (warehouse.GetProducts().Single(x => x.Id == product.Id).Count == 0) productDal.Delete(product);
         }
 
         public void BuyProduct(Product product)
