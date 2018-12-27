@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using DataAccess.Abstract;
 using Entities.Concrete;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -20,6 +21,7 @@ namespace Business.Concrete
         public void AssignProduct(Personal personal, Product product)
         {
             product.AssignedById = personal.Id;
+            product.AssignedByDate = DateTime.Now.ToString("dd/MM/yyyy");
             productDal.Update(product);
         }
 
